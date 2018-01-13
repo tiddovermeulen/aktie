@@ -80,16 +80,13 @@ $labels = get_field( 'aktie_staffel_form_labels' );
                     </div>
 				<?php else: ?>
                 <div class="col-md-8">
-                    <div class="content">
-						<?php the_content(); ?>
-                    </div>
-					<?php
-					if ( ! empty( $data['items'] ) && $data['items'][0]['price'] != null ) :
-						$show_button = true;
-						$pdf = aktie_get_offerte_pdf( $post, $_POST );
-						$before = get_field( 'aktie_product_before_content', $post );
-						$_before = ( $before ) ? $before : "Hier is de offerte voor uw akte:";
-						?>
+	                <?php
+	                if ( ! empty( $data['items'] ) && $data['items'][0]['price'] != null ) :
+		                $show_button = true;
+		                $pdf = aktie_get_offerte_pdf( $post, $_POST );
+		                $before = get_field( 'aktie_product_before_content', $post );
+		                $_before = ( $before ) ? $before : "Hier is de offerte voor uw akte:";
+		                ?>
                         <div class="offerte">
                             <h3 class="offerte-h3"><?php echo $_before ?></h3>
                             <div class="pull-right">
@@ -191,6 +188,9 @@ $labels = get_field( 'aktie_staffel_form_labels' );
                                 data-target="#offerte-form">ACCEPTEER OFFERTE <span
                                     class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
 					<?php endif ?>
+                    <div class="content">
+		                <?php the_content(); ?>
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <div class="after-content">
